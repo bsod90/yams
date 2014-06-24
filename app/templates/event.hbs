@@ -1,0 +1,93 @@
+{{#if canEdit}}
+<div class='edit-buttons'>
+    {{#if editMode}}
+    <button class='btn btn-success' {{action 'saveChanges'}}>Save</button>
+    {{else}}
+    <button class='btn btn-default' {{action 'toggleEditMode'}}>Edit</button>
+    {{/if}}
+</div>
+{{/if}}
+<div {{bind-attr class=':privacy-indicator public:indicator-public:indicator-private'}}>
+    {{#if public}}
+        <span class='fa fa-globe' title='This event is public'></span>
+    {{else}}
+        <span class='fa fa-lock' title='This event is private'></span>
+    {{/if}}
+</div>
+<div class='row'>
+    <div class='col-lg-8 event-left-column'>
+        <div class='row'>
+            {{#if editMode}}
+                <div class='row top-margin'>
+                    <div class='col-md-2'>
+                        {{public-private checked=public checkbox_id="public_private_onoff"}} 
+                    </div>
+                    <div class='col-md-10 onofflabel'>
+                        {{#if public }} 
+                            <label for='public_private_onoff'>Anyone who has the link can see this event</label>
+                        {{ else }} 
+                            <label for='public_private_onoff'>Only invited participants can see this event</label>
+                        {{/if }}
+                    </div>
+                </div>
+            {{/if}}
+            {{#if editMode }}
+                {{input type=text value=title class='form-control top-margin'}}
+            {{else}}
+                <h2>{{title}}</h2>by {{creator.fullName}}
+            {{/if}}
+
+            {{#if editMode }}
+                {{textarea value=description class='form-control top-margin'}}
+            {{else}}
+                <p>{{description}}</p>
+            {{/if}}
+
+            {{#if editMode}}
+                <div class='top-margin'>
+                    {{date-range startDate=startDate endDate=endDate}}
+                </div>
+            {{else}}
+                <p>At: {{formatDate startDate 'short+time'}} &mdash; {{formatDate endDate 'short+time'}} ({{formatDate startDate 'fromnow'}})</p>
+            {{/if}}
+        </div>
+        <div class='row top-margin'>
+            {{photo-carousel content=pictures elementWidth=100}}
+        </div>
+        <div class='row new-comment-row top-margin'>
+            {{textarea class='form-control' value=newComment placeholder='Leave a comment...' action='postComment'}}
+            <button class='btn btn-default new-comment-btn' {{action 'postComment'}}>Add Message</button>
+        </div>
+        <div class='row top-margin'>
+            {{#each sortedComments}}
+            <div classs='comment'>
+                <div class='row'>
+                    <div class='col-md-1'>
+                        <img {{bind-attr src=author.gravatar}}>
+                    </div>
+                    <div class='col-md-11'>
+                        <h5 class='comment-header'>{{author.fullName}} <i>{{formatDate creationTime 'fromnow'}}</i></h5>
+                        <p>{{message}}</p>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <div class='col-lg-4 event-right-column'>
+        <div class='row'>
+            {{#if editMode}}
+                {{address-picker value=location.address lat=location.geopoint.latitude lng=location.geopoint.longitude}}
+            {{else}}
+                {{#if location.address}} {{draw-location location=location}} {{/if}}
+            {{/if}}
+        </div>
+        <div class='row'>
+            <h3>Participants</h3>
+            {{#if editMode}}
+                <div class='top-margin'>{{email-bar event=model}}</div>
+            {{/if}}
+            {{#each participant in participants}} {{draw-participant participant=participant}} {{/each}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!-- Static navbar -->
+<div class="navbar navbar-static-top navbar-theme" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            {{link-to 'YAMS' 'events.index' class='navbar-brand link-light'}}
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                {{#if controllers.login.isAuthenticated}}
+                    <li>
+                        <a href='#' class='link-light' {{action 'toggleEvents'}}>Events</a>
+                    </li>
+                {{/if}}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {{#if controllers.login.isAuthenticated}}
+                    <li class='dropdown'>
+                        <a href="#" data-toggle="dropdown" class='navbar-text link-light navbar-user'>
+                            <b class="caret"></b>
+                            {{controllers.login.user.fullName}}
+                            <img {{bind-attr src='controllers.login.user.gravatar'}}>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#" {{action "signOut" target="controllers.login"}}>Sign Out</a></li>
+                        </ul>
+                    </li>
+                {{else}}
+                    <li>
+                        <a href='#' {{action 'askForLogin'}} class='link-light'>Login or Singn Up</a>
+                    </li>
+                {{/if}}
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+</div>
+
+<div class="wrapper">
+    <div class="container">
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron jumbotron-theme">
+            {{outlet}}
+        </div>
+
+    </div>
+    <!-- /container -->
+</div>

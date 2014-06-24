@@ -1,0 +1,12 @@
+<div class='col-md-2'>
+    <img {{bind-attr src='participant.user.gravatar' }}>
+</div>
+<div class='col-md-8'>
+    <div>{{participant.user.fullName}}</div>
+    <div>{{participant.user.email}}</div>
+</div>
+<div class='col-md-2'>
+    <span class='participant-status'>
+        {{#if isPending}} <i class='glyphicon glyphicon-time'></i> {{else}} {{#if isAccepted}} <i class='glyphicon glyphicon-ok'></i> {{else}} {{#if isRejected}} <i class='glyphicon glyphicon-remove'></i> {{else}} <i class='glyphicon glyphicon-question-sign'></i> {{/if}} {{/if}} {{/if}}
+    </span>
+</div>

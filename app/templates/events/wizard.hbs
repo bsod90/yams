@@ -1,0 +1,90 @@
+<div class='row'>
+    <div class='publish-button'>
+        <button class='btn btn-success' {{ action 'publishEvent' }}>That's it, publish!</button>
+    </div>
+</div>
+
+<div class='row'>
+    <div class='col-lg-2'>
+        <ul class="nav nav-stacked wizard-nav">
+            <li>
+                <a href='#' {{action 'scrollTo' 'describe' target='view' }} {{bind-attr class='view.isDescribeActive:wizard-nav-active' }}>Describe</a>
+            </li>
+            <li>
+                <a href='#' {{action 'scrollTo' 'people' target='view' }} {{bind-attr class='view.isPeopleActive:wizard-nav-active' }}>Invite</a>
+            </li>
+            <li>
+                <a href='#' {{action 'scrollTo' 'location' target='view' }} {{bind-attr class='view.isLocationActive:wizard-nav-active' }}>Choose location</a>
+            </li>
+            <li>
+                <a href='#' {{action 'scrollTo' 'uploads' target='view' }} {{bind-attr class='view.isUploadsActive:wizard-nav-active' }}>Upload</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class='col-lg-10 wizard-overflow'>
+        <div class='wizard-row event-row'>
+            <a id='describe'></a>
+            <div class='row'>
+                <div class='col-lg-4'>
+                    <h3>Describe your event</h3>
+                </div>
+                <div class='col-lg-8'>
+                    <div class='form-public-private-switch'>
+                        {{public-private checked=public checkbox_id="public_private_onoff"}}
+                    </div>
+                </div>
+            </div>
+
+            <div class='form-group top-margin'>
+                <label>Title it</label>
+                {{input type='text' value=title size=30 placeholder='Party for everybody' class='form-control'}}
+            </div>
+            <div class='form-group'>
+                <label>Choose dates</label>
+                {{date-range startDate=startDate endDate=endDate}}
+            </div>
+            <div class='form-group'>
+                <label>Add description</label>
+                {{textarea value=description class='form-control'}}
+            </div>
+
+        </div>
+
+
+        <div class='wizard-row people-row'>
+            <a id='people'></a>
+            <h3>Invite your friends</h3>
+
+            <p>Just type their emails, they will receive email notifications once event will be puplished.</p>
+            {{email-bar event=model}}
+            <div>
+                {{#each participant in participants}} {{draw-participant participant=participant}} {{/each}}
+            </div>
+        </div>
+
+        <div class='wizard-row location-row'>
+            <a id='location'></a>
+            <h3>Choose the location</h3>
+
+            {{address-picker value=location.address lat=location.geopoint.latitude lng=location.geopoint.longitude}}
+        </div>
+
+
+        <div class='wizard-row uploads-row'>
+            <a id='uploads'></a>
+            <h3>Upload some images and choose an event cover</h3>
+
+            <div class='well uploads-wrapper'>
+                {{#each picture in pictures}}
+                <div class='upload-container'>
+                    <img {{bind-attr src="picture.thumbnailUrl" class=":thumbnail :thumbnail-upload" }}>
+                    <a {{bind-attr class=":thumbnail-rollover :cover-rollover picture.isCover:cover-rollover-active" }} {{action 'setCover' picture}}>Cover</a>
+                    <a class='thumbnail-rollover delete-rollover' {{action 'remove' picture}}>Remove</a>
+                </div>
+                {{/each}}
+                <button class='btn btn-default upload-image-button' {{action 'upload'}}><i class='fa fa-plus'></i>&nbsp;Upload an image</button>
+            </div>
+        </div>
+    </div>
+</div>

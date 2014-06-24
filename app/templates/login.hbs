@@ -1,0 +1,12 @@
+<h3>Login as:</h3>
+{{#each user in model}}
+<div class='participant top-margin link' {{action 'loginAs' user}}>
+    <div class='col-md-2'>
+        <img {{bind-attr src='user.gravatar' }}>
+    </div>
+    <div class='col-md-10'>
+        <div>{{user.fullName}}</div>
+        <div>{{user.email}}</div>
+    </div>
+</div>
+{{/each}}

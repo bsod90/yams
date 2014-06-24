@@ -1,0 +1,292 @@
+/* Put your CSS here */
+ html {
+    background-repeat: no-repeat;
+    background-position: center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+body {
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #2B2B2B;
+    background-color: rgba(0, 0, 0, 0);
+}
+/* overrides and customizations */
+ .link {
+    cursor: hand;
+}
+.text-light {
+    color: #F6F6F6;
+}
+a.link-light {
+    color: #F6F6F6;
+}
+a.link-light:hover {
+    color: #2B2B2B;
+    text-decoration: none;
+}
+a {
+    color: #2B2B2B;
+}
+.nav .open > a {
+    background-color: #eee;
+    border-color: #428bca;
+    color: #2B2B2B;
+}
+.navbar-user {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin: 0px;
+}
+.navbar-user img {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
+.navbar-theme {
+    background-color: #de1b1b;
+    border: none;
+}
+.jumbotron-theme {
+    border-radius: 0px !important;
+    background-color: rgba(250, 250, 250, 0.9);
+    position: relative;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 20px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 0px;
+}
+.input-group-addon {
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+}
+.input-group-addon:first-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-left-width: 1px;
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+/* new styles */
+ .address-picker-map {
+    width: 100%;
+    height: 250px;
+}
+.twitter-typeahead {
+    width: 100%;
+}
+a.active {
+    font-weight: bold;
+}
+.selectize-label {
+    margin: 5px;
+    font-size: 20px;
+    display: block;
+}
+.selectize-caption {
+    margin: 5px;
+}
+.thumbnail-upload {
+    display: inline-block;
+    max-height: 100px;
+    max-width: 100px;
+    margin: 0px !important;
+}
+.upload-container {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+}
+.thumbnail-rollover {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 50%;
+    padding: 0px;
+    margin: 0px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    text-align: center;
+    padding: 3px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0;
+}
+.thumbnail-rollover:hover, .cover-rollover-active {
+    opacity: 1 !important;
+    color: #fff;
+    text-decoration: none;
+    cursor: hand;
+}
+.cover-rollover {
+    top: 0px;
+}
+.delete-rollover {
+    bottom: 0px;
+}
+.cover {
+    max-height: 300px;
+    max-width: 300px;
+}
+.participant {
+    width: 270px;
+    height: 40px;
+    margin-left: -15px;
+    margin-right: 1em;
+    display: inline-block;
+}
+.participant-status {
+    font-size: 20px;
+}
+.event-left-column {
+    padding: 2em !important;
+}
+.event-right-column {
+    padding: 2em !important;
+}
+.edit-buttons {
+    position: absolute;
+    top: 0px;
+    right: 55px;
+}
+.privacy-indicator {
+    position: absolute;
+    top: -10px;
+    left: 55px;
+    display: block;
+    border: 1px solid #adadad;
+    width:0;
+    height:50px;
+    border-bottom:15px solid transparent;
+}
+.privacy-indicator span {
+    color: #F9F9F9;
+    padding: 6px 12px;
+    font-size: 26px;
+    position: absolute;
+    top: 0px !important;
+    left: -24px !important;
+}
+.indicator-public {
+    border-right: 25px solid #5cb85c;
+    border-left: 25px solid #5cb85c;
+}
+.indicator-private {
+    border-right: 25px solid #de1b1b;
+    border-left: 25px solid #de1b1b;
+}
+.indicator-private span {
+    left: -20px !important;
+}
+.top-margin {
+    margin-top: 1em;
+}
+.new-comment-row {
+    position: relative;
+}
+.new-comment-btn {
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+}
+.comment-header {
+    margin-top: 0px !important;
+}
+.onofflabel {
+    margin-top: 5px;
+}
+.publish-button {
+    position: absolute;
+    top: 0px;
+    right: 55px;
+}
+.publish-button button {
+    font-size: 20px;
+}
+.uploads-wrapper {
+    position: relative;
+}
+.upload-image-button {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.wizard-overflow {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 70vh;
+    padding-right: 15px;
+}
+.wizard-row {
+    height: 70vh;
+}
+.form-public-private-switch {
+    margin-top: 20px;
+    margin-right: 15px;
+}
+.wizard-nav {
+    position: absolute;
+    left: -45px;
+}
+.wizard-nav a {
+    font-size: 20px;
+    border-left: 5px solid transparent;
+}
+.wizard-nav a:hover, .wizard-nav-active {
+    border-left: 5px solid #2a6496 !important;
+    background-color: rgba(240, 240, 240, 0.8) !important;
+}
+.image-in-modal {
+    max-height: 60vh;
+    max-width: 80vw;
+}
